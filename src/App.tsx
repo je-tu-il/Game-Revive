@@ -9,7 +9,7 @@ import { PieceRequestModal } from './components/PieceRequestModal';
 import { StatsBar } from './components/StatsBar';
 import { GAMES_DATABASE } from './data/gamesData';
 import type { Game, MissingPiece } from './types/game';
-import { Dices, AlertCircle, Sparkles } from 'lucide-react';
+import { Dices, AlertCircle } from 'lucide-react';
 
 export function App() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -76,7 +76,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-amber-500 selection:text-slate-950">
+    <div className="revive-app min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-amber-500 selection:text-slate-950">
       {/* HEADER */}
       <Header
         onRequestClick={() => setIsRequestModalOpen(true)}
@@ -101,15 +101,11 @@ export function App() {
           /* SEARCH & CATALOG VIEW */
           <div className="space-y-10">
             {/* HERO SECTION */}
-            <div className="text-center max-w-3xl mx-auto space-y-4 pt-4 pb-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Plateforme de restauration de jeux de société</span>
-              </div>
+            <div className="revive-intro space-y-4">
 
               <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
                 Une pièce perdue ? <br className="hidden sm:inline" />
-                <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400 bg-clip-text text-transparent">
+                <span >
                   Téléchargez-la en 3D ou en PDF.
                 </span>
               </h1>
@@ -171,7 +167,7 @@ export function App() {
                   </button>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="revive-library grid gap-6">
                   {filteredGames.map((game) => (
                     <GameCard
                       key={game.id}
